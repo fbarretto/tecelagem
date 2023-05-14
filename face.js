@@ -40,17 +40,18 @@ class Face {
     }
 
     render() {
-
+        // push();
+        // translate(-this.color.length * 10 * 0.5,-this.color.length * 10 * 0.5);
         for (let i = 0; i < this.color.length; i++) {
-            fill(this.color[i][0], this.color[i][1], this.color[i][2], 255);
+            fill(this.color[i][0], this.color[i][1], this.color[i][2], this.timeout * 170 / 300);
             if (i%2==0) {
-                rect(this.centerX+i*10, this.centerY, 20, this.color.length * this.width * 0.2);
+                // rect(this.centerX+i*10, this.centerY, 20, this.color.length * this.height * 0.2);
+                rect(5+this.centerX+i*10-this.color.length*5, this.centerY, 20, this.color.length * this.width * 0.2);
             } else {
-                rect(this.centerX, this.centerY+i*10, this.color.length * this.width * 0.2, 20);
+                rect(this.centerX, 5+this.centerY+i*10-this.color.length*5, this.color.length * this.width * 0.2, 20);
             }
-            
-            
         }
+        // pop();
         // let grad = drawingContext.createRadialGradient(this.centerX, this.centerY, 1, this.centerX, this.centerY, this.color.length * this.width * 0.2);
 
         // if (this.color.length > 1)
