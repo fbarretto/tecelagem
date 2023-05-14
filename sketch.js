@@ -78,6 +78,7 @@ function draw() {
     translate(width, 0);
     scale(-1, 1);
     image(video, 0, 0, width, height);
+    filter(GRAY);
     for (face of faces) {
         face.render();
         if (face.gotEmoji(x, y)) {
