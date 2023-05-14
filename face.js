@@ -40,7 +40,6 @@ class Face {
     }
 
     render() {
-
         let grad = drawingContext.createRadialGradient(this.centerX, this.centerY, 1, this.centerX, this.centerY, this.color.length * this.width * 0.2);
         
         if (this.color.length > 1)
@@ -48,6 +47,6 @@ class Face {
                 grad.addColorStop(map(i, 0, this.color.length - 1, 0, 1), color(this.color[i][0], this.color[i][1], this.color[i][2], this.timeout*170/300 ));
             }
         drawingContext.fillStyle = grad;
-        ellipse(this.centerX, this.centerY, this.color.length * this.width * 0.2, this.color.length * this.width * 0.2);
+        rect(this.centerX, this.centerY, this.color.length * this.width * 0.2, this.color.length * this.width * 0.2);
     }
 }
