@@ -46,9 +46,6 @@ function gotResults(err, result) {
     if (result) {
         // console.log(result);
         if (result.length > 0) {
-            if (result.length <= faces.length) {
-                faces.length = result.length;
-            }
             for (let i = faces.length; i < result.length; i++) {
                 faces.push(new Face());
             }
@@ -75,7 +72,7 @@ function draw() {
     push();
     translate(width, 0);
     scale(-1, 1);
-    image(video, 0, 0, width, height);
+    // image(video, 0, 0, width, height);
     for (face of faces) {
         face.render();
         if (face.gotEmoji(x, y)) {
