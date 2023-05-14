@@ -40,13 +40,24 @@ class Face {
     }
 
     render() {
-        let grad = drawingContext.createRadialGradient(this.centerX, this.centerY, 1, this.centerX, this.centerY, this.color.length * this.width * 0.2);
-        
-        if (this.color.length > 1)
-            for (let i = 0; i < this.color.length; i++) {
-                grad.addColorStop(map(i, 0, this.color.length - 1, 0, 1), color(this.color[i][0], this.color[i][1], this.color[i][2], this.timeout*170/300 ));
+
+        for (let i = 0; i < this.color.length; i++) {
+            fill(this.color[i][0], this.color[i][1], this.color[i][2], 255);
+            if (i%2==0) {
+                rect(this.centerX+i*10, this.centerY, 20, this.color.length * this.width * 0.2);
+            } else {
+                rect(this.centerX, this.centerY+i*10, this.color.length * this.width * 0.2, 20);
             }
-        drawingContext.fillStyle = grad;
-        rect(this.centerX, this.centerY, this.color.length * this.width * 0.2, this.color.length * this.width * 0.2);
+            
+            
+        }
+        // let grad = drawingContext.createRadialGradient(this.centerX, this.centerY, 1, this.centerX, this.centerY, this.color.length * this.width * 0.2);
+
+        // if (this.color.length > 1)
+        //     for (let i = 0; i < this.color.length; i++) {
+        //         grad.addColorStop(map(i, 0, this.color.length - 1, 0, 1), color(this.color[i][0], this.color[i][1], this.color[i][2], this.timeout * 170 / 300));
+        //     }
+        // drawingContext.fillStyle = grad;
+        // rect(this.centerX, this.centerY, this.color.length * this.width * 0.2, this.color.length * this.width * 0.2);
     }
 }

@@ -22,6 +22,7 @@ function setup() {
 
     noStroke();
     textAlign(CENTER, CENTER);
+    rectMode(CENTER);
     randomEmojiPosition();
 }
 
