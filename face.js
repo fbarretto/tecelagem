@@ -19,7 +19,8 @@ class Face {
         this.centerY = this.y + this.height / 2;
         this.width += (width - this.width) * this.easing;
         this.height += (height - this.height) * this.easing;
-        this.timeout = 300;
+        this.timeout += 30;
+        this.timeout = min(this.timeout, 300);
     }
 
     updateTimeout() {
@@ -43,12 +44,12 @@ class Face {
         // push();
         // translate(-this.color.length * 10 * 0.5,-this.color.length * 10 * 0.5);
         for (let i = 0; i < this.color.length; i++) {
-            fill(this.color[i][0], this.color[i][1], this.color[i][2], this.timeout * 170 / 300);
+            fill(this.color[i], 100,100, this.timeout / 300.0 * 0.7);
             if (i%2==0) {
                 // rect(this.centerX+i*10, this.centerY, 20, this.color.length * this.height * 0.2);
-                rect(5+this.centerX+i*10-this.color.length*5, this.centerY, 20, this.color.length * this.width * 0.2);
+                rect(5+this.centerX+i*10-this.color.length*5, this.centerY, 20, this.color.length * this.width * 0.1);
             } else {
-                rect(this.centerX, 5+this.centerY+i*10-this.color.length*5, this.color.length * this.width * 0.2, 20);
+                rect(this.centerX, 5+this.centerY+i*10-this.color.length*5, this.color.length * this.width * 0.1, 20);
             }
         }
         // pop();
